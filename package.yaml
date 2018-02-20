@@ -1,10 +1,10 @@
 name:                struct-indenter
-version:             0.1.0.0
-github:              "githubuser/struct-indenter"
+version:             0.1.0
+github:              "githubuser/struct-indenter-haskell"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+author:              "Ryo Ota"
+maintainer:          "nwtgck@gmail.com"
+copyright:           "2018 Ryo Ota"
 
 extra-source-files:
 - README.md
