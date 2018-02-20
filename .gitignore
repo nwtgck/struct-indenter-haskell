@@ -1,0 +1,7 @@
+/.stack-work/
+/struct-indenter.cabal
+
+# For IntelliJ IDEA
+/cabal.config
+/.idea
+/struct-indenter.iml
