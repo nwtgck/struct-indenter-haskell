@@ -1,5 +1,9 @@
 # struct-indenter
 
+Beautify nested structure
+
+**NOTE: This implementation is poor.**
+
 ## Example Usage
 
 ```bash
