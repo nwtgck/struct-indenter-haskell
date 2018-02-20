@@ -39,7 +39,7 @@ stringP = do
     ParsecChar.char '"'
     strings <- Parsec.many character
     ParsecChar.char '"'
-    return $ concat strings
+    return $ show (concat strings)
  where
   escape :: Parsec String u String
   escape = do
