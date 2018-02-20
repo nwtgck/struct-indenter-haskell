@@ -4,6 +4,7 @@ module Main where
 
 import Data.Maybe
 import Data.List
+import System.IO
 
 import           Text.Parsec      (Parsec, (<|>))
 import qualified Text.Parsec      as Parsec
@@ -59,11 +60,8 @@ showWithIndent indent ContTerm{name, terms} = (replicate indent ' ') ++ name ++ 
 
 main :: IO ()
 main = do
-  let str = "List(Defn.Object(Nil, Term.Name(\"Main\"), Template(Nil, Nil, Self(Name(\"\"), None), List(Term.For(List(Enumerator.Generator(Pat.Var(Term.Name(\"i\")), Term.ApplyInfix(Lit.Int(0), Term.Name(\"to\"), Nil, List(Lit.Int(10))))), Term.Block(List(Term.Apply(Term.Name(\"println\"), List(Term.Interpolate(Term.Name(\"s\"), List(Lit.String(\"i: \"), Lit.String(\"\")), List(Term.Name(\"i\")))))))), Defn.Val(Nil, List(Pat.Var(Term.Name(\"arr\"))), None, Term.Apply(Term.Select(Term.Name(\"np\"), Term.Name(\"array\")), List(Lit.Int(1), Lit.Int(2), Lit.Int(3), Lit.Int(4)))), Defn.Val(Nil, List(Pat.Var(Term.Name(\"iOrStr\"))), Some(Type.Or(Type.Name(\"Int\"), Type.Name(\"String\"))), Lit.Int(10)), Term.Apply(Term.Name(\"println\"), List(Lit.String(\"hello, world\")))))))"
-  let str2 = "A(1,2,3)"
-  let str3 = "A(B(1,2,3),C(B,D,4),Z(B(1),C(2)))"
-  putStrLn str
-  case Parsec.parse termP "" str of
+  codeStr <- hGetContents stdin
+  case Parsec.parse termP "" codeStr of
     Right term ->
       putStrLn (showWithIndent 0 term)
     Left e ->
